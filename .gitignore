@@ -1,0 +1,9 @@
+/venv/
+/.env
+/alembic.txt
+/tokens.py
+
+
+.idea/
+__pycache__/
+
