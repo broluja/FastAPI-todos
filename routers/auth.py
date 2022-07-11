@@ -153,12 +153,15 @@ async def register_user(request: Request,
                         username: str = Form(...),
                         firstname: str = Form(...),
                         lastname: str = Form(...),
+                        phone: str = Form(...),
                         password: str = Form(...),
                         password2: str = Form(...),
                         db: Session = Depends(get_db)
                         ):
     validation1 = db.query(models.Users).filter(models.Users.username == username).first()
     validation2 = db.query(models.Users).filter(models.Users.email == email).first()
+    print(validation2)
+    print(validation1)
     if password != password2 or validation1 is not None or validation2 is not None:
         msg = 'Invalid registration request!'
         return templates.TemplateResponse('register.html', {'request': request, 'msg': msg})

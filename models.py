@@ -12,7 +12,7 @@ class Users(Base):
     last_name = Column(String)
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
-    phone_number = Column(String, nullable=False)
+    phone_number = Column(String, nullable=True)
     address_id = Column(Integer, ForeignKey('address.id'), nullable=True)
 
     todos = relationship('ToDos', back_populates='owner')
